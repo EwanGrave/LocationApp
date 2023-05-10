@@ -18,4 +18,6 @@ public interface LocationBusinessLocal {
 	public void updateLocation(LocationBean locationBean);
 
 	public void deleteLocation(Integer id);
+
+	public Double getTemp(LocationBean bean);
 }

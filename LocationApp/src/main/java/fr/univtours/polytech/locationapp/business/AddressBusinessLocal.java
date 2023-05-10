@@ -9,4 +9,5 @@ import fr.univtours.polytech.locationapp.model.address.Feature;
 @Local
 public interface AddressBusinessLocal {
 	public List<Feature> searchAdresses(String search);
+	
 }
