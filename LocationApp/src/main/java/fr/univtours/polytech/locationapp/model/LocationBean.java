@@ -42,6 +42,11 @@ public class LocationBean implements Serializable {
 	{
 		this.temperature = temp;
 	}
+	
+	public Double getTemperature()
+	{
+		return this.temperature;
+	}
 
 	public Integer getId() {
 		return this.id;
