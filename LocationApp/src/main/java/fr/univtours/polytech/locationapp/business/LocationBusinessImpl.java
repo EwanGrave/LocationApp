@@ -44,10 +44,13 @@ public class LocationBusinessImpl implements LocationBusinessLocal, LocationBusi
 	}
 	
 	@Override
-	public Double getTemp(LocationBean bean) {
+	public void getTemp(LocationBean bean) {
 		Feature address = adressBusiness.searchAdresses(bean.getAddress()).get(0);
+		if (address == null) {
+			bean.setTemp(null);
+		}
 		List<Double> coordinates = address.getGeometry().getCoordinates();
-		return tempDao.getTemp(coordinates.get(0), coordinates.get(1));
+		bean.setTemp(tempDao.getTemp(coordinates.get(0), coordinates.get(1)));
 	}
 	
 
