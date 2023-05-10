@@ -45,14 +45,15 @@ public class LocationBusinessImpl implements LocationBusinessLocal, LocationBusi
 	
 	@Override
 	public void getTemp(LocationBean bean) {
-		String addr = bean.getAddress() + bean.getCity() + bean.getZipCode();
+		String addr = bean.getAddress() + bean.getZipCode();
 		Feature address = adressBusiness.searchAdresses(addr).get(0);
 		if (address == null) {
 			bean.setTemperature(null);
 		}
-		List<Double> coordinates = address.getGeometry().getCoordinates();
-		bean.setTemperature(tempDao.getTemp(coordinates.get(0), coordinates.get(1)));
+		else
+		{
+			List<Double> coordinates = address.getGeometry().getCoordinates();
+			bean.setTemperature(tempDao.getTemp(coordinates.get(0), coordinates.get(1)));
+		}
 	}
-	
-
 }

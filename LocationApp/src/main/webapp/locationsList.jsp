@@ -20,7 +20,17 @@
 					<legend><c:out value="${loc.city}" /> (<c:out value="${loc.zipCode}" />)</legend>
 					<p>${loc.address} - ${loc.city} (${loc.zipCode})<br/><br/><br/>
 					Prix pour une nuit : ${loc.nightPrice} euros<br/><br/><br/>
-					Température actuelle : <fmt:formatNumber type="number" maxFractionDigits="1" minFractionDigits="1" value="${loc.temperature - 273}"/> °C</p>
+					
+					<c:choose>
+						<c:when test="${ loc.temperature == null }">
+							Température actuelle : NULL
+						</c:when>
+						
+						<c:otherwise>
+							Température actuelle : <fmt:formatNumber type="number" maxFractionDigits="1" minFractionDigits="1" value="${loc.temperature - 273}"/> °C
+						</c:otherwise>
+					</c:choose>
+					</p>
 					<p><img src="data:image/jpg;base64,${loc.base64Image}"
 							width="200px" /></p>
 				</fieldset>
