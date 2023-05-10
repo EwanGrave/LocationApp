@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -25,6 +26,10 @@ public class LocationBean implements Serializable {
 	private String address;
 	private String city;
 	private String zipCode;
+	
+	@Transient
+	private Double temperature;
+	
 	@Lob
 	private byte[] picture;
 	private static final long serialVersionUID = 1L;
