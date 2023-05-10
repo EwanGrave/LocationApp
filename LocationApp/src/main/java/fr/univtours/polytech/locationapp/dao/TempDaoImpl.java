@@ -15,7 +15,7 @@ public class TempDaoImpl implements TempDao {
 	private static String key = "8b571c471a04b8622841d0edad41d0c5";
 
 	@Override
-	public Double getTemp(int lon, int lat) {
+	public Double getTemp(Double lon, Double lat) {
 	    Client client = ClientBuilder.newClient();
 	    WebTarget target = client.target(URL);
 	    
