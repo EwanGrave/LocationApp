@@ -47,10 +47,10 @@ public class LocationBusinessImpl implements LocationBusinessLocal, LocationBusi
 	public void getTemp(LocationBean bean) {
 		Feature address = adressBusiness.searchAdresses(bean.getAddress()).get(0);
 		if (address == null) {
-			bean.setTemp(null);
+			bean.setTemperature(null);
 		}
 		List<Double> coordinates = address.getGeometry().getCoordinates();
-		bean.setTemp(tempDao.getTemp(coordinates.get(0), coordinates.get(1)));
+		bean.setTemperature(tempDao.getTemp(coordinates.get(0), coordinates.get(1)));
 	}
 	
 

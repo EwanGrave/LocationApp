@@ -27,6 +27,9 @@ public class LocationsListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<LocationBean> locationsList = business.getLocations();
+		
+		for (int i = 0; i < locationsList.size(); ++i)
+			business.getTemp(locationsList.get(i));
 
 		request.setAttribute("LOCATIONS_LIST", locationsList);
 

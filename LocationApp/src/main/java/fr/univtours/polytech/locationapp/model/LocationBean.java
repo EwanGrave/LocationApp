@@ -110,7 +110,4 @@ public class LocationBean implements Serializable {
 		}
 	}
 
-	public void setTemp(Double temp) {
-	}
-
 }
